@@ -1,0 +1,22 @@
+/* Additional component styles */
+.error { border-color: #ef4444 !important; }
+.blog-b1 { background: linear-gradient(135deg,#fff8e6,#ffedb3); }
+.blog-b2 { background: linear-gradient(135deg,#e6f0ff,#b3d4ff); }
+.blog-b3 { background: linear-gradient(135deg,#e6ffe6,#b3f0b3); }
+@media (max-width: 768px) {
+  .page-hero { padding-bottom: 50px; }
+  .hiw-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Blog card backgrounds */
+.blog-b1 { background: linear-gradient(135deg, #fff8e6, #ffedb3); }
+.blog-b2 { background: linear-gradient(135deg, #e6f0ff, #b3d4ff); }
+.blog-b3 { background: linear-gradient(135deg, #e6ffe6, #b3f0b3); }
+.blog-b4 { background: linear-gradient(135deg, #ffe6f0, #ffb3d4); }
+.blog-b5 { background: linear-gradient(135deg, #e6fff8, #b3f0e0); }
+
+/* Form error state */
+.form-input.error, .form-select.error {
+    border-color: #ef4444 !important;
+    background: #fff5f5;
+}
