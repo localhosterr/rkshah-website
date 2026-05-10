@@ -358,6 +358,34 @@
             </div>
         </div>
 
+{{-- Change Password Card --}}
+<div class="card" style="margin-top:16px">
+    <div class="card__header">
+        <div class="card__title">🔑 Change CMS Password</div>
+        <span style="font-size:11px;color:var(--t4)">Logged in as: {{ session('cms_admin.email') }}</span>
+    </div>
+    <div class="card__body">
+        <form action="{{ route('cms.settings.password') }}" method="POST">
+            @csrf
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Current Password</label>
+                    <input class="form-input" type="password" name="current_password" required placeholder="Enter current password">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">New Password</label>
+                    <input class="form-input" type="password" name="new_password" required placeholder="Min 8 characters">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Confirm New Password</label>
+                <input class="form-input" type="password" name="new_password_confirmation" required placeholder="Repeat new password">
+            </div>
+            <button type="submit" class="btn btn--gold">🔑 Change Password</button>
+        </form>
+    </div>
+</div>
+
         <div style="margin-top:14px;text-align:right">
             <button type="submit" class="btn btn--gold btn--lg">💾 Save Notification Settings</button>
         </div>

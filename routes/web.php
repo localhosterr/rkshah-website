@@ -116,6 +116,7 @@ Route::prefix('cms')->name('cms.')->group(function(){
     // Settings
     Route::get('/settings',                  [CmsController::class,'settings'])->name('settings');
     Route::put('/settings',                  [CmsController::class,'settingsUpdate'])->name('settings.update');
+    Route::post('/settings/password', [CmsController::class,'changePassword'])->name('settings.password');
 
     // Global search
     Route::get('/search', [CmsController::class,'globalSearch'])->name('search');

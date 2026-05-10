@@ -13,15 +13,36 @@ class CmsController extends Controller
 
     // ═══ AUTH ════════════════════════════════════════════════════════════════
     public function loginForm(){if(session('cms_admin'))return redirect()->route('cms.dashboard');return view('cms.auth.login');}
-    public function loginPost(Request $request){
-        $request->validate(['email'=>'required|email','password'=>'required']);
-        if($request->email===env('CMS_ADMIN_EMAIL','admin@rkshahcarrental.com')&&$request->password===env('CMS_ADMIN_PASSWORD','RKShah@2024')){
-            session(['cms_admin'=>['name'=>'RK Shah','email'=>$request->email]]);
-            return redirect()->route('cms.dashboard')->with('success','Welcome back!');
-        }
-        return back()->withErrors(['email'=>'Invalid credentials.'])->withInput();
+public function loginPost(Request $request)
+{
+    $request->validate([
+        'email'    => 'required|email',
+        'password' => 'required|min:6',
+    ]);
+
+    $admin = \App\Models\AdminUser::where('email', $request->email)
+                                  ->where('is_active', true)
+                                  ->first();
+
+    if (!$admin || !\Hash::check($request->password, $admin->password)) {
+        return back()
+            ->withErrors(['email' => 'Invalid email or password.'])
+            ->withInput();
     }
-    public function logout(){session()->forget('cms_admin');return redirect()->route('cms.login');}
+
+    // Update last login
+    $admin->update(['last_login_at' => now()]);
+
+    session(['cms_admin' => [
+        'id'    => $admin->id,
+        'name'  => $admin->name,
+        'email' => $admin->email,
+    ]]);
+
+    return redirect()->route('cms.dashboard')
+                     ->with('success', 'Welcome back, ' . $admin->name . '!');
+}
+public function logout(){session()->forget('cms_admin');return redirect()->route('cms.login');}
 
     // ═══ DASHBOARD ═══════════════════════════════════════════════════════════
     public function dashboard(){
@@ -413,11 +434,31 @@ class CmsController extends Controller
         if($r=$this->checkAuth())return $r;
         foreach($request->except('_token','_method','tab') as $key=>$value){
             if($value===null||trim((string)$value)==='')continue;
-            Setting::set($key,$value);
-        }
-        Setting::clearCache();Cache::forget('fare_settings');Cache::forget('settings_public');
-        return back()->with('success','Settings saved! Website updated instantly.');
+          Setting::set($key,$value);
+       }
+       Setting::clearCache();Cache::forget('fare_settings');Cache::forget('settings_public');
+       return back()->with('success','Settings saved! Website updated instantly.');
+   }
+
+public function changePassword(Request $request)
+{
+    if ($r = $this->checkAuth()) return $r;
+
+    $request->validate([
+        'current_password' => 'required',
+        'new_password'     => 'required|min:8|confirmed',
+    ]);
+
+    $admin = \App\Models\AdminUser::find(session('cms_admin.id'));
+
+    if (!$admin || !\Hash::check($request->current_password, $admin->password)) {
+        return back()->with('error', 'Current password is incorrect.');
     }
+
+    $admin->update(['password' => \Hash::make($request->new_password)]);
+
+    return back()->with('success', 'Password changed successfully!');
+}
 
     // ═══ MEDIA ═══════════════════════════════════════════════════════════════
     public function media(){
