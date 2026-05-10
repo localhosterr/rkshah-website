@@ -131,6 +131,43 @@
           <div class="current-val">📍 Currently: <strong>{{ is_array($car->features) ? implode(', ',$car->features) : 'Not set' }}</strong></div>
         </div>
 
+        {{-- IMAGE & VISUAL --}}
+        <div style="background:var(--bg);border-radius:var(--r2);padding:14px;margin-bottom:14px;border:1px solid var(--border)">
+          <div style="font-family:var(--ff-h);font-size:10px;font-weight:700;color:var(--t4);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Image & Visual</div>
+          <div style="display:grid;grid-template-columns:60px 1fr 1fr;gap:10px;align-items:start">
+            <div class="form-group" style="margin:0">
+              <label class="form-label">Emoji</label>
+              <input class="form-input js-track" type="text" name="emoji"
+                     value="{{ $car->emoji }}" maxlength="5"
+                     style="font-size:20px;text-align:center;padding:6px">
+              <div class="current-val">📍 {{ $car->emoji }}</div>
+            </div>
+            <div class="form-group" style="margin:0">
+              <label class="form-label">Card Background</label>
+              <select class="form-select js-track" name="bg_class">
+                @foreach(['fleet-innova'=>'Dark Blue','fleet-creta'=>'Warm Beige','fleet-ertiga'=>'Light Green','fleet-dzire'=>'Golden'] as $val=>$lbl)
+                <option value="{{ $val }}" {{ $car->bg_class===$val?'selected':'' }}>{{ $lbl }}</option>
+                @endforeach
+              </select>
+              <div class="current-val">📍 {{ $car->bg_class }}</div>
+            </div>
+            <div class="form-group" style="margin:0">
+              <label class="form-label">Car Image <span style="color:var(--t4);font-weight:400">(max 4MB)</span></label>
+              <input type="file" name="car_image" accept="image/jpg,image/jpeg,image/png,image/webp"
+                     style="font-size:12px;padding:5px;width:100%">
+              @if($car->featured_image)
+              <div style="display:flex;align-items:center;gap:8px;margin-top:6px">
+                <img src="{{ asset('storage/'.$car->featured_image) }}"
+                     style="width:70px;height:50px;object-fit:cover;border-radius:var(--r);border:1px solid var(--border)">
+                <span style="font-size:10px;color:var(--t4)">Current image<br>Upload new to replace</span>
+              </div>
+              @else
+              <div class="current-val">📍 No image — showing emoji</div>
+              @endif
+            </div>
+          </div>
+        </div>
+
         {{-- Utilisation --}}
         <div style="margin-bottom:14px">
           <div style="display:flex;justify-content:space-between;margin-bottom:4px">
@@ -162,7 +199,7 @@
 <div class="modal-backdrop" id="addCarModal">
   <div class="modal modal--lg">
     <div class="modal__header"><div class="modal__title">➕ Add New Car to Fleet</div><button class="modal__close" onclick="closeModal('addCarModal')">✕</button></div>
-    <form action="{{ route('cms.fleet.store') }}" method="POST">
+    <form action="{{ route('cms.fleet.store') }}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="modal__body">
         <div class="form-row">
@@ -188,6 +225,12 @@
         <div class="form-row">
           <div class="form-group"><label class="form-label">Minimum KM</label><input class="form-input" type="number" name="min_km" value="250" min="0"></div>
           <div class="form-group"><label class="form-label">Badge</label><input class="form-input" name="badge" placeholder="e.g. Premium · Leave blank for none"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Car Image <span style="color:var(--t4);font-weight:400">(optional · 800×300px · max 4MB · jpg/png/webp)</span></label>
+          <input type="file" name="car_image" accept="image/jpg,image/jpeg,image/png,image/webp"
+                 style="font-size:13px;padding:6px;width:100%;border:1.5px solid var(--border);border-radius:var(--r);background:var(--bg)">
+          <div style="font-size:11px;color:var(--t4);margin-top:3px">If no image uploaded, emoji is shown instead</div>
         </div>
         <div class="form-row">
           <div class="form-group"><label class="form-label">Emoji</label><input class="form-input" name="emoji" placeholder="🚙" maxlength="5" style="text-align:center;font-size:20px"></div>
