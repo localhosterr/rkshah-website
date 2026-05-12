@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Contact RK Shah Car Rental — Book Your Cab Today')
-@section('meta_description', 'Contact RK Shah Car Rental for outstation cab booking from Delhi. Call +91 93245 55165 or WhatsApp for instant quote. Available 6 AM to 11 PM daily.')
+@section('title', 'Contact RK Shah Car Rental — Book Outstation Cab Delhi | Call +91 93245 55165')
+@section('meta_description', 'Book your outstation cab from Delhi. Call or WhatsApp RK Shah on +91 93245 55165. Available daily 6 AM to 11 PM. Instant quote for any destination. Office: Soniya Vihar, Delhi 110094.')
+@section('meta_keywords', 'contact RK Shah Car Rental, book cab Delhi, outstation taxi booking Delhi, call cab Delhi, WhatsApp cab booking Delhi')
+@section('og_title', 'Contact RK Shah Car Rental — Book Your Outstation Cab Today')
+@section('og_description', 'Call or WhatsApp +91 93245 55165 for instant cab booking from Delhi. Available 6 AM to 11 PM daily.')
 
 @section('content')
 

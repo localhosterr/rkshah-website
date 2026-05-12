@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Outstation Cab Routes from Delhi — Starting Fares | RK Shah')
+@section('title', 'Outstation Cab Routes from Delhi — Agra, Jaipur, Manali, Shimla, Rishikesh | RK Shah Car Rentals')
 @section('meta_description', $totalCount . ' outstation routes from Delhi. Agra, Jaipur, Manali, Shimla, Rishikesh & more. AC cabs, verified drivers. Call +91 93245 55165.')
 
 @section('content')

@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Travel Blog — Route Guides, Tips & Destination Inspiration | RK Shah')
-@section('meta_description', 'Insider travel guides from Delhi. Agra, Manali, Jaipur, Rishikesh route tips, budget cab advice, seasonal travel guides. Written by RK Shah Car Rental.')
+@section('title', 'Travel Blog — Outstation Trip Guides from Delhi | Route Tips & Cab Advice | RK Shah car rental')
+@section('meta_description', 'Expert travel guides for outstation trips from Delhi — Agra day trip, Manali road trip, Rajasthan circuit, Char Dham yatra, cab booking tips. Written by RK Shah, Delhi cab owner since 2015.')
+@section('meta_keywords', 'Delhi outstation trip guide, Delhi to Agra travel tips, Manali road trip guide, Rajasthan trip from Delhi, cab booking tips India, outstation travel blog Delhi')
+@section('og_title', 'Travel Blog — Outstation Trip Guides from Delhi | RK Shah Car Rental')
+@section('og_description', 'Expert route guides, travel tips and destination inspiration for outstation trips from Delhi. Written by RK Shah.')
 
 @section('content')
 

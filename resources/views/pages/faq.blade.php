@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'FAQ — RK Shah Car Rental | Common Questions Answered')
-@section('meta_description', 'Answers to common questions about booking, pricing, drivers, and routes with RK Shah Car Rental Delhi. Call +91 93245 55165.')
+@section('title', 'FAQ — Cab Booking, Pricing & Driver Questions | RK Shah Car Rental Delhi')
+@section('meta_description', 'Frequently asked questions about booking an outstation cab with RK Shah — pricing explained, what's included, driver credentials, cancellation policy, advance payment and more. All honest answers.')
+@section('meta_keywords', 'cab rental FAQ Delhi, outstation taxi questions, car hire Delhi questions, cab booking Delhi help, what is included cab hire Delhi')
+@section('og_title', 'FAQ — Everything You Need to Know About Booking | RK Shah Car Rental')
+@section('og_description', 'Pricing, inclusions, driver credentials, cancellation policy — all your outstation cab questions answered honestly.')
 
 @section('content')
 

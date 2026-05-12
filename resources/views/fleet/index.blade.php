@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Our Fleet — AC Cars for Every Journey | RK Shah Car Rental')
-@section('meta_description', 'Book Innova Crysta, Kia Creta, Ertiga or Swift Dzire from Delhi. AC, GPS-tracked, verified drivers. Starting ₹' . $rateFrom . '/km. Call +91 93245 55165.')
+@section('title', 'Our Fleet — AC Outstation Cabs Delhi | Innova Crysta, Kia Carens, Ertiga, Swift Dzire')
+@section('meta_description', 'Book Innova Crysta, Kia Carens, Ertiga or Swift Dzire from Delhi. AC, GPS-tracked, verified drivers. Starting ₹' . $rateFrom . '/km. Call +91 93245 55165.')
+@section('meta_keywords', 'car hire Delhi outstation, Innova Crysta rental Delhi, Kia Carens taxi Delhi, Ertiga cab Delhi, Swift Dzire taxi Delhi, AC cab Delhi, 7 seater cab Delhi')
 
 @section('content')
 
@@ -119,7 +120,7 @@
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
         @foreach([
           ['Travelling solo or as a couple',   'Swift Dzire — most economical'],
-          ['Small family trip (3–4 people)',    'Kia Creta — comfortable & stylish'],
+          ['Small family trip (3–4 people)',    'Kia Carens — comfortable & stylish'],
           ['Large family or group (5–7)',       'Innova Crysta or Ertiga'],
           ['Budget-conscious group of 7',      'Ertiga — CNG, great mileage'],
           ['Long hill station trip (Manali)',   'Innova Crysta — most reliable on mountain roads'],

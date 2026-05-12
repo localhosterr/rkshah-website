@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'About RK Shah Car Rental — Delhi Outstation Cab Since 2015')
-@section('meta_description', 'The story of RK Shah Car Rental — Delhi trusted outstation cab service since 2015. 1,200+ happy trips, 4.9 star rating, police verified drivers. Meet the owner.')
+@section('title', 'About RK Shah Car Rental — Delhi's Trusted Outstation Cab Owner Since 2015')
+@section('meta_description', 'Meet RK Shah — the owner and driver who personally handles every booking. Delhi outstation cab service since 2015 with 1,200+ trips, 4.9 Google rating, 180+ reviews. No middlemen, no hidden charges.')
+@section('meta_keywords', 'RK Shah Car Rental Delhi, trusted cab owner Delhi, outstation cab Delhi since 2015, reliable taxi Delhi, verified driver Delhi')
+@section('og_title', 'About RK Shah — Owner of Delhi's Most Trusted Outstation Cab Service')
+@section('og_description', 'Since 2015, RK Shah personally handles every booking. 1,200+ trips, 4.9 star rating. Delhi's most trusted outstation cab service.')
 
 @section('content')
 

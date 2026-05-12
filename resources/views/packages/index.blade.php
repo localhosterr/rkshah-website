@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Tour Packages from Delhi — Rajasthan, Himachal, Uttarakhand | RK Shah')
-@section('meta_description', 'All-inclusive tour packages from Delhi. Rajasthan, Himachal, Char Dham, Agra, Rishikesh. Cab + driver + itinerary. Starting ₹5,500. Call +91 93245 55165.')
+@section('title', 'Tour Packages from Delhi by Cab — Rajasthan, Himachal, Char Dham, Golden Triangle | RK Shah Car Rental')
+@section('meta_description', 'All-inclusive tour packages from Delhi with AC cab + experienced driver + planned itinerary. Rajasthan Royal Tour, Golden Triangle, Char Dham Yatra, Himachal, Rishikesh. Starting ₹5,500. Book now.')
+@section('meta_keywords', 'tour packages from Delhi by cab, Rajasthan tour package Delhi, Char Dham yatra package, Golden Triangle tour cab, Himachal tour Delhi, Delhi outstation tour package')
+@section('og_title', 'Tour Packages from Delhi by Cab — 15+ Packages | RK Shah Car Rental')
+@section('og_description', 'Rajasthan, Himachal, Char Dham, Golden Triangle and more. All-inclusive cab packages with experienced driver. Starting ₹5,500.')
 
 @section('content')
 

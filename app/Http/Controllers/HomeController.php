@@ -48,29 +48,60 @@ class HomeController extends Controller
         $round = $request->trip_type === 'round_trip';
 
         // Rates — single cached query
-        $s = Cache::remember('fare_settings', 3600, function () {
-            return \DB::table('settings')
-                ->whereIn('key', [
-                    'rate_dzire','rate_ertiga','rate_creta','rate_innova',
-                    'da_dzire','da_ertiga','da_creta','da_innova',
-                    'fare_range_percent',
-                ])
-                ->pluck('value', 'key')
-                ->toArray();
+        // $s = Cache::remember('fare_settings', 3600, function () {
+        //     return \DB::table('settings')
+        //         ->whereIn('key', [
+        //             'rate_dzire','rate_ertiga','rate_creta','rate_innova',
+        //             'da_dzire','da_ertiga','da_creta','da_innova',
+        //             'fare_range_percent',
+        //         ])
+        //         ->pluck('value', 'key')
+        //         ->toArray();
+        // });
+
+        // $rates = [
+        //     'dzire'  => (int)($s['rate_dzire']  ?? 9),
+        //     'ertiga' => (int)($s['rate_ertiga'] ?? 11),
+        //     'creta'  => (int)($s['rate_creta']  ?? 12),
+        //     'innova' => (int)($s['rate_innova'] ?? 14),
+        // ];
+        // $da = [
+        //     'dzire'  => (int)($s['da_dzire']  ?? 1500),
+        //     'ertiga' => (int)($s['da_ertiga'] ?? 1800),
+        //     'creta'  => (int)($s['da_creta']  ?? 2000),
+        //     'innova' => (int)($s['da_innova'] ?? 2200),
+        // ];
+
+        // Read rates directly from fleet table — single source of truth
+        $fareSettings = Cache::remember('fare_settings', 3600, function () {
+            $cars = Fleet::active()->get()->keyBy('slug');
+            return [
+                'rate_dzire'  => (int) ($cars['swift-dzire']->rate_per_km   ?? 11),
+                'rate_ertiga' => (int) ($cars['ertiga']->rate_per_km        ?? 14),
+                'rate_creta'  => (int) ($cars['kia-creta']->rate_per_km     ?? 15),
+                'rate_innova' => (int) ($cars['innova-crysta']->rate_per_km ?? 20),
+                'da_dzire'    => (int) ($cars['swift-dzire']->driver_allowance   ?? 500),
+                'da_ertiga'   => (int) ($cars['ertiga']->driver_allowance        ?? 500),
+                'da_creta'    => (int) ($cars['kia-creta']->driver_allowance     ?? 500),
+                'da_innova'   => (int) ($cars['innova-crysta']->driver_allowance ?? 500),
+                'fare_range_percent' => (int) Setting::get('fare_range_percent', 10),
+            ];
         });
 
         $rates = [
-            'dzire'  => (int)($s['rate_dzire']  ?? 9),
-            'ertiga' => (int)($s['rate_ertiga'] ?? 11),
-            'creta'  => (int)($s['rate_creta']  ?? 12),
-            'innova' => (int)($s['rate_innova'] ?? 14),
+            'dzire'  => $fareSettings['rate_dzire'],
+            'ertiga' => $fareSettings['rate_ertiga'],
+            'creta'  => $fareSettings['rate_creta'],
+            'innova' => $fareSettings['rate_innova'],
         ];
         $da = [
-            'dzire'  => (int)($s['da_dzire']  ?? 1500),
-            'ertiga' => (int)($s['da_ertiga'] ?? 1800),
-            'creta'  => (int)($s['da_creta']  ?? 2000),
-            'innova' => (int)($s['da_innova'] ?? 2200),
+            'dzire'  => $fareSettings['da_dzire'],
+            'ertiga' => $fareSettings['da_ertiga'],
+            'creta'  => $fareSettings['da_creta'],
+            'innova' => $fareSettings['da_innova'],
         ];
+
+        $s = $fareSettings; // keep for fare_range_percent below
 
         $km = 0; $fixedPrice = null;
 

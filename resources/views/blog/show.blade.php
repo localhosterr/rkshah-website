@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('title', ($post->seo_title ?? $post->title) . ' | RK Shah Car Rental')
-@section('meta_description', $post->seo_description ?? $post->excerpt)
+@section('title', ($post->seo_title ?? $post->title) . ' | RK Shah Car Rental — Delhi Cab Blog') . ' | RK Shah Car Rental')
+@section('meta_description', $post->seo_description ?? $post->excerpt ?? 'Read this guide from RK Shah Car Rental — Delhi outstation cab service since 2015. Expert travel tips, route guides and cab booking advice.')
+@section('meta_keywords', ($post->category ?? 'travel tips') . ', outstation cab Delhi, travel guide Delhi, RK Shah Car Rental blog')
 @section('og_title', $post->title)
 
 @section('content')

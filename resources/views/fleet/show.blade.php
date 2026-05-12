@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $car->name . ' Rental Delhi — Starting ₹' . $car->rate_per_km . '/km | RK Shah')
+@section('title', $car->name . ' on Rent Delhi — ₹' . $car->rate_per_km . '/km | Outstation Cab | RK Shah Car Rental')
 @section('meta_description', 'Hire ' . $car->name . ' from Delhi for outstation trips. ' . $car->seats . ' seats, AC, GPS. Starting ₹' . $car->rate_per_km . '/km. Verified driver. Call +91 93245 55165.')
 
 @section('og_title', $car->name . ' Car Rental Delhi — RK Shah')

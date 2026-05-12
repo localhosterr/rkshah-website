@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'RK Shah Car Rental — Delhi Outstation Cab Service')
-@section('meta_description', 'Delhi\'s most trusted outstation cab service. Book Innova Crysta, Kia Creta, Ertiga, Swift Dzire. All-inclusive pricing, verified drivers, 24/7 support. Call +91 93245 55165.')
+@section('title', 'RK Shah Car Rental Delhi — Book Outstation Cab | Innova, Carens, Ertiga, Dzire')
+@section('meta_description', 'Delhi\'s most trusted outstation cab service. Book Innova Crysta, Kia Carens, Ertiga, Swift Dzire. All-inclusive pricing, verified drivers, 24/7 support. Call +91 93245 55165.')
+@section('meta_keywords', 'outstation cab Delhi, car rental Delhi, Delhi to Agra cab, Delhi to Jaipur taxi, Innova Crysta hire Delhi, cab booking Delhi NCR, outstation taxi Delhi NCR')
 
 @section('content')
 
@@ -110,10 +111,11 @@
                     <div class="form-group">
                         <label class="form-label" for="carTypeSelect">Car Type</label>
                         <select class="form-select" id="carTypeSelect" name="car_type">
-                            <option value="dzire">Swift Dzire (₹9/km)</option>
-                            <option value="ertiga">Ertiga (₹11/km)</option>
-                            <option value="creta">Kia Creta (₹12/km)</option>
-                            <option value="innova" selected>Innova Crysta (₹14/km)</option>
+                            @foreach($fleet as $car)
+                            <option value="{{ $car->fare_key }}" {{ $car->fare_key === 'innova' ? 'selected' : '' }}>
+                                {{ $car->name }} (₹{{ $car->rate_per_km }}/km)
+                            </option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
@@ -195,8 +197,8 @@
 <section class="section section--light">
     <div class="container">
         <div class="section-head">
-            <span class="eyebrow">Why RK Shah</span>
-            <h2 class="section-head__title">{{ $whyUs['section_title'] ?? 'Not Just a Cab.' }} <span class="text--gold">A Complete Journey.</span></h2>
+            <span class="eyebrow">Why RK Shah Car Rental</span>
+            <h2 class="section-head__title">{{ $whyUs['section_title'] ?? 'Not Just a Cab.' }} <br> <span class="text--gold">A Complete Journey.</span></h2>
             <p class="section-head__desc">{{ $whyUs['section_desc'] ?? 'Everything that matters for a comfortable, safe, stress-free outstation trip.' }}</p>
             <div class="section-head__divider"></div>
         </div>
