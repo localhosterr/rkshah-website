@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'About RK Shah Car Rental — Delhi's Trusted Outstation Cab Owner Since 2015')
-@section('meta_description', 'Meet RK Shah — the owner and driver who personally handles every booking. Delhi outstation cab service since 2015 with 1,200+ trips, 4.9 Google rating, 180+ reviews. No middlemen, no hidden charges.')
-@section('meta_keywords', 'RK Shah Car Rental Delhi, trusted cab owner Delhi, outstation cab Delhi since 2015, reliable taxi Delhi, verified driver Delhi')
-@section('og_title', 'About RK Shah — Owner of Delhi's Most Trusted Outstation Cab Service')
-@section('og_description', 'Since 2015, RK Shah personally handles every booking. 1,200+ trips, 4.9 star rating. Delhi's most trusted outstation cab service.')
+@section('title', "About RK Shah Car Rental — Delhi's Trusted Outstation Cab Owner Since 2022")
+@section('meta_description', "Meet RK Shah — the owner and driver who personally handles every booking. Delhi outstation cab service since 2022 with 1,200+ trips, 4.9 Google rating, 180+ reviews. No middlemen, no hidden charges.")
+@section('meta_keywords', "RK Shah Car Rental Delhi, trusted cab owner Delhi, outstation cab Delhi since 2022, reliable taxi Delhi, verified driver Delhi")
+@section('og_title', "About RK Shah — Owner of Delhi's Most Trusted Outstation Cab Service")
+@section('og_description', "Since 2022, RK Shah personally handles every booking. 1,200+ trips, 4.9 star rating. Delhi's most trusted outstation cab service.")
 
 @section('content')
 
@@ -26,7 +26,7 @@
           <span>Driven by Passion.</span>
         </h1>
         <p style="font-size:16px;color:rgba(255,255,255,.65);line-height:1.8;margin:20px 0 28px;max-width:480px">
-          Since 2015, RK Shah Car Rental has been the go-to outstation cab service for thousands of Delhi families. Not because of ads or algorithms — but because of one man's commitment to doing things right.
+          Since 2022, RK Shah Car Rental has been the go-to outstation cab service for thousands of Delhi families. Not because of ads or algorithms — but because of one man's commitment to doing things right.
         </p>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
           <a href="tel:+919324555165" class="btn btn--gold btn--lg">📞 Call RK Shah Directly</a>
@@ -98,7 +98,7 @@
               Founder & Owner
             </div>
             <div style="font-size:12px;color:rgba(255,255,255,.45);margin-bottom:24px">
-              Soniya Vihar, Delhi · Since 2015
+              Soniya Vihar, Delhi · Since 2022
             </div>
 
             {{-- Quote --}}
@@ -143,7 +143,7 @@
 
         <div style="font-size:15px;line-height:1.85;color:var(--gray5)">
           <p style="margin-bottom:16px">
-            RK Shah started this business in 2015 with a single car and a simple principle: treat every passenger the way you would want your own family to be treated. No shortcuts, no false promises, no hidden charges.
+            RK Shah started this business in 2022 with a single car and a simple principle: treat every passenger the way you would want your own family to be treated. No shortcuts, no false promises, no hidden charges.
           </p>
           <p style="margin-bottom:16px">
             In the early days, RK Shah drove every trip himself. He learned every highway, every shortcut, every good dhaba on the Yamuna Expressway, every viewpoint on the Manali road. That first-hand knowledge is what he passes on to every driver he works with today.
