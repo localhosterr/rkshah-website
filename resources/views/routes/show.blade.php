@@ -1,7 +1,13 @@
 @extends('layouts.app')
 
-@section('title', $route->from_city . ' to ' . $route->to_city . ' Cab — Starting ₹' . ($route->min_price ? number_format($route->min_price) : 'Get Quote') . ' | RK Shah Car Rental Delhi') : 'Get Quote') . ' | RK Shah Car Rental')
-@section('meta_description', 'Book cab from ' . $route->from_city . ' to ' . $route->to_city . ($route->distance_km > 0 ? ' — ' . $route->distance_km . ' km, ~' . $route->duration_hrs . ' hrs' : '') . '. AC car, GPS tracked, verified driver. ' . ($route->highlight ?? '') . '. All tolls included. Call +91 93245 55165.') . 'AC cars, verified drivers. Call +91 93245 55165.')
+@section('title', $route->from_city . ' to ' . $route->to_city . ' Cab — Starting ₹' . ($route->min_price ? number_format($route->min_price) : 'Get Quote') . ' | RK Shah Car Rental Delhi')
+@section('meta_description', 
+'Book cab from ' . $route->from_city . 
+' to ' . $route->to_city . ($route->distance_km > 0 ? ' — ' . $route->distance_km . 
+' km, ~' . $route->duration_hrs . ' hrs' : '') . 
+'. AC car, GPS tracked, verified driver. ' . 
+($route->highlight ?? '') . 
+'. All tolls included. Call +91 93245 55165.' . 'AC cars, verified drivers. Call +91 93245 55165.')
 
 @section('meta_keywords', 'Delhi to ' . $route->to_city . ' cab, Delhi ' . $route->to_city . ' taxi fare, ' . $route->to_city . ' trip from Delhi cab, Delhi to ' . $route->to_city . ' one way taxi')
 @section('og_title', $route->from_city . ' to ' . $route->to_city . ' Cab | RK Shah Car Rental')

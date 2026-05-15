@@ -186,7 +186,7 @@
     <div style="text-align:center;margin-bottom:50px">
       <span class="eyebrow">Our Journey</span>
       <h2 style="font-family:var(--ff-h);font-size:1.8rem;font-weight:900;color:var(--navy3);margin-top:10px">
-        10 Years on the Road
+        4 Years on the Road
       </h2>
       <p style="font-size:15px;color:var(--gray5);margin-top:8px;max-width:500px;margin-left:auto;margin-right:auto">
         From a single car to a trusted fleet — built entirely on word of mouth.

@@ -1,7 +1,14 @@
 @extends('layouts.app')
 
-@section('title', $package->name . ($package->nights > 0 ? ' — ' . $package->nights . 'N/' . $package->days . 'D' : '') . ' from Delhi by Cab | RK Shah Car Rental') . ' from Delhi | RK Shah Car Rental')
-@section('meta_description', $package->name . ' from Delhi. ' . ($package->nights > 0 ? $package->nights . ' nights, ' . $package->days . ' days. ' : '') . (!empty($package->destinations) ? 'Covering ' . implode(', ', array_slice((array)$package->destinations, 0, 3)) . '. ' : '') . 'AC cab + driver + all tolls included. Starting ₹' . ($package->price > 0 ? number_format($package->price) : 'custom quote') . '. Call +91 93245 55165.') . 'Starting ₹' . ($package->price > 0 ? number_format($package->price) : 'custom') . '/person. Call +91 93245 55165.')
+@section('title', $package->name . ($package->nights > 0 ? ' — ' . $package->nights . 'N/' . $package->days . 'D' : '') . ' from Delhi by Cab | RK Shah Car Rental')
+@section('meta_description',  
+                  $package->name . ' from Delhi. ' . ($package->nights > 0 ? $package->nights . ' nights, ' 
+                 . $package->days . ' days. ' : '') . 
+                 (!empty($package->destinations) ? 'Covering ' 
+                 . implode(', ', array_slice((array)$package->destinations, 0, 3)) . '. ' : '') 
+                 . 'AC cab + driver + all tolls included. Starting ₹' . ($package->price > 0 ? number_format($package->price) : 'custom quote') 
+                 . '. Call +91 93245 55165.' . 'Starting ₹' . ($package->price > 0 ? number_format($package->price) : 'custom') 
+                 . '/person. Call +91 93245 55165.')
 
 @section('content')
 
